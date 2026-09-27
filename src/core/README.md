@@ -4,28 +4,36 @@ afinah is being built as a natural-language Life Operating System with user agen
 
 ## Implemented on this branch
 - Domain registry for Heal, Mind, Execute, Money, Learn, Legal Research and Dreams & Goals.
-- Natural-language domain routing.
-- Consent gates for high-stakes domains.
-- Domain-specific safety requirements and no-diagnosis response contract.
-- Deterministic next-action plans for each domain.
-- Content-intake planning for text, PDF and structured sources; storage/indexing is deliberately not connected yet.
-- Unit tests for routing, consent gating, execution planning and content intake.
+- Natural-language domain routing and deterministic next-action plans.
+- Consent gates and high-stakes response requirements.
+- Text, PDF and structured-content intake planning.
+- Life Map planning across the seven core domains.
+- Authoritative-source research contract with jurisdiction, effective-date and citation requirements.
+- Adaptive learning and vocabulary mastery planning.
+- Energy-aware focus and accountability planning.
+- Consent-gated voice session contract with raw-audio retention off by default.
+- User-directed stability planning.
+- Core profile, consent, goal and task record contracts.
+- Storage binding contract that reports persistence as unconfigured until a real database is attached.
+- Capability-gated tool policy for specialized agents.
+- Runtime facade joining the core modules without exposing them publicly before authentication and persistence are ready.
+- Automated tests plus Wrangler dry-run verification in GitHub Actions.
 
 ## Design rules
 - User agency is sovereign.
 - Sensitive domains activate only with explicit user consent.
-- Legal, financial and wellness outputs require source-grounding and clear limits.
-- ADHD support personalizes productivity strategies; it does not diagnose.
-- Agents must operate through least-privilege capabilities rather than unrestricted production access.
-- Automated code remediation must pass tests/staging/policy gates before production.
+- High-stakes outputs require source-grounding and visible uncertainty.
+- Attention and focus support must remain functional support, not diagnosis.
+- Agents operate through least-privilege capabilities rather than unrestricted production access.
+- Raw voice data is not retained by default.
+- Automated code changes must pass tests and deployment gates before production.
 
-## Next service boundaries
-1. Runtime API wiring for the orchestrator.
-2. Persistent Life Map / goals / tasks.
-3. Learning engine and mastery tracking.
-4. Legal research retrieval with jurisdiction, effective dates and citations.
-5. Financial recovery workflows.
-6. Trauma-informed reflection and wellness support.
-7. Document/PDF extraction and retrieval.
-8. Voice streaming adapters.
-9. Audit, privacy, security and observability.
+## Not connected yet
+- Authentication and account/session management.
+- Durable production database and migrations.
+- Document extraction/indexing and retrieval store.
+- External authoritative research providers.
+- Live model, speech-to-text or text-to-speech providers.
+- Production audit store and privacy-request workflows.
+
+Those integrations must not be represented as complete until their bindings, tests and deployment state are verified.
