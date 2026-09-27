@@ -1,6 +1,6 @@
 export const AFINAH = Object.freeze({
   name: "afinah",
-  version: "0.3.1",
+  version: "0.4.0",
   principles: ["agency","consent","privacy","non-encroachment","source-grounding"],
   domains: ["heal","mind","execute","money","learn","legal","goals"]
 });
