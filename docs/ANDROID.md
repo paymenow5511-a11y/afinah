@@ -6,6 +6,9 @@ Afinah is an installable PWA, not an APK. Open its HTTPS address in Chrome on yo
 
 ## Everyday use
 
+- Use **Move** to choose another date, an exact time, or a flexible morning/afternoon/evening period. An exact time takes precedence. Reminder tasks require an exact time. Moving a recurring task moves only the selected occurrence; the rest of the routine stays scheduled. The moved occurrence keeps its notes and completion state.
+- Open **Goals** to add short- and long-term goals for any area, with target dates, notes, measurable targets and entered progress. **Add a step** creates a task linked to that goal. Task checkmarks do not automatically count as training hours. QuickBooks certification is prefilled under Education with the requested November 19, 2026 deadline (three weeks after October 29). The original 30-hour estimate is editable, and existing progress is marked unknown until entered. Goals and moved occurrences are included in backups.
+
 - Use **Add notes / Edit notes** on any task to save its details, including after it is completed.
 - Deleting a task moves it to **Deleted tasks**, with a 15-second **Undo** action. Open **Deleted tasks** from the task list or Settings to restore it later. Notes, dates, repeat settings and completion history are preserved. Deleted tasks do not expire automatically and are included in backups. They remain on the same device, subject to the same storage and backup limitations as active tasks.
 
