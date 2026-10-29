@@ -1,4 +1,4 @@
-const CACHE='afinah-app-v2';
+const CACHE='afinah-app-v3';
 const SHELL=['/','/index.html','/style.css','/app.mjs','/model.mjs','/outlook.mjs','/outlook-data.mjs','/msal.generated.mjs','/manifest.webmanifest','/icon.svg','/icon-192.png','/icon-512.png'];
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(SHELL)));});
 self.addEventListener('activate',event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('afinah-app-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()));});
