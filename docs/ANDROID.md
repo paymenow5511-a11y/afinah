@@ -6,6 +6,9 @@ Afinah is an installable PWA, not an APK. Open its HTTPS address in Chrome on yo
 
 ## Everyday use
 
+- Use **Add notes / Edit notes** on any task to save its details, including after it is completed.
+- Deleting a task moves it to **Deleted tasks**, with a 15-second **Undo** action. Open **Deleted tasks** from the task list or Settings to restore it later. Notes, dates, repeat settings and completion history are preserved. Deleted tasks do not expire automatically and are included in backups. They remain on the same device, subject to the same storage and backup limitations as active tasks.
+
 - Tap a large checkbox to complete a task. Tap again to undo completion.
 - Add or edit tasks with notes, an area, a family member, due date, time, priority, and optional repeat.
 - My day includes undated and overdue one-time tasks and routines scheduled for the selected day. All tasks also includes future tasks. Routines can only be checked off on a scheduled day.

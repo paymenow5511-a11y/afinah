@@ -5,4 +5,5 @@
 @media(max-width:760px){.summary{padding:16px;gap:10px;margin-bottom:20px}.summary h2{font-size:23px;margin-bottom:5px}.summary .eyebrow{margin-bottom:7px}.focus-tip{padding-top:10px}.focus-tip strong{font-size:18px}.focus-tip p{display:none}.top-card{min-height:68px}.top-card.empty:not(:first-child){display:none}.top-list{grid-template-columns:1fr}.top-card b{display:inline;margin-right:10px}.top-card.empty{min-height:52px}.section-label{margin-top:22px}}
 
 /* Forest green and dark purple are Afinah’s primary brand colors. */
+#toast button{margin-left:16px;background:#f1e9f6;color:var(--purple);min-height:44px}#deleted-task-list h3{overflow-wrap:anywhere}#deleted-tasks{scroll-margin-top:90px}
 .summary p,.summary .eyebrow,.summary .focus-tip span{color:#d5e3d8}.summary progress::-webkit-progress-bar{background:#456452}.summary progress::-webkit-progress-value{background:#d4b9e5}.summary progress{accent-color:#d4b9e5}.summary .focus-tip{border-color:#456452}.section-label h2,h1{color:var(--purple)}.brand{color:#f1e9f6}.star:focus-visible{outline-color:#9463b2}

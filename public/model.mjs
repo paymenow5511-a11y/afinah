@@ -9,18 +9,29 @@ export function seed(today = dateKey()) {
     task('Clean one area · 30 minutes','Home','daily',null,'5 min trash · 10 min put away · 10 min clean one surface · 5 min finish. Keep stray items in a basket. One room, one timer, one task.'),
     task('Wash one load of laundry','Home','daily',null,'Wash, dry, fold, and put away one load.'),
     {...task('Friday detailed laundry','Home','weekly',5,'Wash, dry, fold, put away clothes, and organize the laundry area.'),due:shiftDate(today,(5-new Date(today+'T12:00:00').getDay()+7)%7)}
-  ].map((t,i)=>({...t,time:['10:15','12:00','11:00'][i],reminder:true})),notes:[],notified:[],settings:{}};
+  ].map((t,i)=>({...t,time:['10:15','12:00','11:00'][i],reminder:true})),deletedTasks:[],notes:[],notified:[],settings:{}};
 }
 export function validate(s) {
   if (!s || s.version!==1 || !Array.isArray(s.tasks) || !Array.isArray(s.notes) || s.tasks.length>10000 || s.notes.length>10000) throw Error('This is not an Afinah backup.');
   const ids=new Set();
-  for (const t of s.tasks) {
+  const deletedTasks=s.deletedTasks??[];
+  if(!Array.isArray(deletedTasks)||deletedTasks.length>10000||deletedTasks.some(t=>!t||typeof t.deletedAt!=='string'||isNaN(Date.parse(t.deletedAt))))throw Error('Invalid deleted tasks in backup.');
+  for (const t of [...s.tasks,...deletedTasks]) {
     if (!t || typeof t.id!=='string' || ids.has(t.id) || typeof t.title!=='string' || !t.title.trim() || t.title.length>300 || !categories.includes(t.category) || !['none','daily','weekly','monthly'].includes(t.repeat) || !Array.isArray(t.done) || t.done.some(x=>typeof x!=='string') || !/^\d{4}-\d{2}-\d{2}$/.test(t.due||'') && t.due!=='' || t.repeat!=='none'&&!t.due || typeof t.notes!=='string' || typeof t.person!=='string' || !/^(?:[0-2]\d:[0-5]\d)?$/.test(t.time||'')) throw Error('Invalid task in backup.');
     if(t.due&&!validDate(t.due)||t.done.some(d=>d!=='once'&&!validDate(d))||t.time&&!/^(?:[01]\d|2[0-3]):[0-5]\d$/.test(t.time)||typeof t.priority!=='boolean'||typeof t.reminder!=='boolean')throw Error('Invalid dates or reminder settings in backup.');
     ids.add(t.id);
   }
   for(const n of s.notes) if(!n || typeof n.id!=='string' || typeof n.text!=='string' || typeof n.updated!=='string') throw Error('Invalid note in backup.');
-  return {...s,notified:Array.isArray(s.notified)?s.notified:[],settings:s.settings||{}};
+  return {...s,deletedTasks,notified:Array.isArray(s.notified)?s.notified:[],settings:s.settings||{}};
+}
+export function deleteTask(state,id,now=new Date().toISOString()){
+  const task=state.tasks.find(t=>t.id===id);if(!task)return state;
+  return {...state,tasks:state.tasks.filter(t=>t.id!==id),deletedTasks:[{...task,deletedAt:now},...(state.deletedTasks||[])]};
+}
+export function restoreTask(state,id){
+  const task=state.deletedTasks?.find(t=>t.id===id);if(!task||state.tasks.some(t=>t.id===id))return state;
+  const {deletedAt,...restored}=task;
+  return {...state,tasks:[...state.tasks,restored],deletedTasks:state.deletedTasks.filter(t=>t.id!==id)};
 }
 export function load(storage) { const raw=storage.getItem(KEY); return raw===null?seed():validate(JSON.parse(raw)); }
 export function save(storage,state) { validate(state); storage.setItem(KEY,JSON.stringify(state)); }
