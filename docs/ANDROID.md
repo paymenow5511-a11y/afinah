@@ -1,5 +1,7 @@
 # Afinah on Android
 
+For live Outlook appointments, use **Settings → Connect your Outlook calendar**. Microsoft app registration and user sign-in are required; see [Outlook setup](OUTLOOK.md). Once connected, the selected Outlook calendars appear alongside tasks and refresh while the app is open. Calendar appointments are read-only; change them and manage their notifications in Outlook.
+
 Afinah is an installable PWA, not an APK. Open its HTTPS address in Chrome on your phone. Select **⋮ → Add to Home screen → Install** (wording varies). Open it once online to cache its files. The installed app uses the same data as Chrome for that address.
 
 ## Everyday use
