@@ -3,3 +3,5 @@ node_modules/
 .dev.vars
 .env
 .DS_Store
+src/assets.generated.js
+public/msal.generated.mjs
